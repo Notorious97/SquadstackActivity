@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 
 public class FileParser {
+    // To map all the string commands to function calls
     private HashMap<String, Method> commands = new HashMap();
     static ParkingLot parkingLot;
 
@@ -23,7 +24,7 @@ public class FileParser {
         }
 
     }
-
+    // Accepts each line and calls parkinglot function respectively 
     public void processLine(String line) {
         String[] inputs = line.split(" ");
         Method method;
@@ -61,7 +62,7 @@ public class FileParser {
         }
 
     }
-
+    // Accepts File path and splits each line
     public void processFile(String path) {
         File file = new File(path);
 
@@ -81,7 +82,7 @@ public class FileParser {
         }
 
     }
-
+    // Function to populate the commands map
     private void fillcommands() throws NoSuchMethodException {
         this.commands.put("Create_parking_lot", ParkingLot.class.getMethod("initParkingLot", String.class));
         this.commands.put("Park", ParkingLot.class.getMethod("parkVehicle", String.class, String.class));

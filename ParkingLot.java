@@ -10,15 +10,19 @@ import java.util.HashMap;
 
 public class ParkingLot {
     int Capacity = 0;
+    // List to keep track of all available slots
     ArrayList<Integer> availableSlots;
+    // Map to store age as key and list of register numbers of vehicles as value
     HashMap<String, ArrayList<String>> ageRegnoMap;
+    // Map to store reg no as key and slot as value
     HashMap<String, String> regnoSlotMap;
+    // Map to store slot as key and Vehicle class as value
     HashMap<String, ParkingLot.Vehicle> slotVehicleMap;
 
     public ParkingLot() {
 
     }
-
+    // Initalises parkinglot
     public void initParkingLot(String Capacity) {
         try {
             this.Capacity = Integer.parseInt(Capacity);
@@ -39,6 +43,7 @@ public class ParkingLot {
         System.out.println("Created parking of " + this.Capacity + " slots");
     }
 
+    // Updates the vehicle in map and alloates a slot
     public void parkVehicle(String regNo, String age) {
         if (this.Capacity == 0) {
             System.out.println("Error: Parking Lot is not initialised");
@@ -67,6 +72,7 @@ public class ParkingLot {
 
     }
 
+    // Removes the vehicle from the maps and makes the occupied slot available
     public void removeVehicle(String slotNo) {
         if (this.Capacity == 0) {
             System.out.println("Error: Parking lot is not initialised");
@@ -89,6 +95,7 @@ public class ParkingLot {
 
     }
 
+    // Returns List of slot numbers from age
     public void getSlotNumbersFromAge(String age) {
         if (this.Capacity == 0) {
             System.out.println("Error: Parking lot is not initialised");
@@ -116,6 +123,7 @@ public class ParkingLot {
 
     }
 
+    // Returns list of register numbers from age
     public void getRegNumbersFromAge(String age) {
         if (this.Capacity == 0) {
             System.out.println("Error: Parking lot is not initialised");
@@ -134,7 +142,7 @@ public class ParkingLot {
         }
 
     }
-
+    //Returns Slot of a register number
     public void getSlotFromRegno(String regno) {
         if (this.Capacity == 0) {
             System.out.println("Parking lot is not initialised");
@@ -144,6 +152,7 @@ public class ParkingLot {
 
     }
 
+    // Class to encapsulate information related to a vehicle
     private class Vehicle {
         public String regNo;
         public String driverAge;
