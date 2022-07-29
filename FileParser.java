@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class FileParser {
     // To map all the string commands to function calls
-    private HashMap<String, Method> commands = new HashMap();
+    private HashMap<String, Method> commands = new HashMap<String, Method> ();
     static ParkingLot parkingLot;
 
     public FileParser() {
